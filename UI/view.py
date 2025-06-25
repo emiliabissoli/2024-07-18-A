@@ -10,7 +10,7 @@ class View(ft.UserControl):
         self._page.horizontal_alignment = 'CENTER'
         self._page.window_width = 1200
         self._page.window_height = 900
-        self._page.window_center()
+        #self._page.window_center()
         self._page.theme_mode = ft.ThemeMode.LIGHT
         # controller (it is not initialized. Must be initialized in the main, after the controller is created)
         self._controller = None
@@ -35,9 +35,11 @@ class View(ft.UserControl):
         # First row with some controls
         self.dd_min_ch = ft.Dropdown(label="Cromosoma min",
                                hint_text="Selezionare il valore minimo di cromosoma.", width=200)
+        self._controller.fillDDMin()
 
         self.dd_max_ch = ft.Dropdown(label="Cromosoma max",
                                hint_text="Selezionare il valore massimo di cromosoma.", width=200)
+        self._controller.fillDDMax()
 
         self.btn_graph = ft.ElevatedButton(text="Crea Grafo",
                                            tooltip="Crea il grafo",
@@ -45,6 +47,7 @@ class View(ft.UserControl):
 
         self.dd_localization = ft.Dropdown(label="Localization",
                                       hint_text="Selezionare la Localization del gene", width=200)
+        self._controller.fillDDLocalization()
 
         self.btn_dettagli = ft.ElevatedButton(text="Dettagli",
                                               tooltip="Stampa dettagli del grafo",
